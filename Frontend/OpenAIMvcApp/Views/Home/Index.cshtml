@@ -1,0 +1,49 @@
+﻿@model DataTable
+@using System.Data;
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayName("Id")
+            </th>
+            <th>
+                @Html.DisplayName("Topic")
+            </th>
+            <th>
+                @Html.DisplayName("Word")
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (DataRow row in Model.Rows) {
+        <tr>
+            <td>
+                @row["Id"]
+            </td>
+            <td>
+                @row["Topic"]
+            </td>
+            <td>
+                @row["Word"]
+            </td>
+            <td>
+                @* @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ }) *@
+                @Html.ActionLink("Print", "Print", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
